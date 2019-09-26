@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isPressed: Bool = true
     var body: some View {
-        Text("Hello World")
+        Rectangle()
+            .frame(width: isPressed ? 300 : 200, height: isPressed ? 300 : 200)
+            .foregroundColor(.blue)
+            .animation(.spring())
+            .onTapGesture {
+                self.isPressed.toggle()
+        }
     }
 }
 
